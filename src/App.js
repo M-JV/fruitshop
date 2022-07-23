@@ -1,8 +1,15 @@
 function App() {
   return (
-    <div className="App">
-      Hello AECians
+    <div className="app">
+      <div className="app__container"></div>
+      <div className="app__heading"> Fruit Shop 
+      </div>
+      <div className="app__carousel">
+      
+      <span className="display--item">Apple 🍎</span>
+      </div>
     </div>
+    
   );
 }
 
