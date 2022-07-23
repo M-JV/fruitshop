@@ -8,7 +8,9 @@ function App() {
   const handleNextClick =()=>{
     setItemNo(itemNo+1);
   }
-
+  const handlePrevClick =()=>{
+    setItemNo(0);
+  }
 
   return (
     
@@ -18,17 +20,21 @@ function App() {
       </div>
       <div className="app__carousel">
 
-        <span className="display--item"> 
+        {currentfruit ?<span className="display--item"> 
         {currentfruit}
         </span>
-        {/*      <span className="display--add">
+        :
+              <span className="display--add">
             <span>End of the list</span>
-            <input type="text" className="app__carousel--input"/> */}
-
+            <input type="text" className="app__carousel--input"/>
+              </span>
+}
       </div>
       <div className="app__next">
+        {currentfruit ?
         <button onClick={handleNextClick} className="btn btn--primary">Next</button>
-      </div>
+        :<button onClick={handlePrevClick} className="btn btn--primary">Reset</button>
+        }</div>
       <div className="app__add">
         <button className="btn btn--secondary">Add</button>
       </div>
