@@ -8,10 +8,16 @@ function App() {
   const handleNextClick =()=>{
     setItemNo(itemNo+1);
   }
+  const handleInput =(event)=>{
+    setItemInput(event.target.value);
+  }
   const handlePrevClick =()=>{
     setItemNo(0);
   }
-
+  const handleAddClick =()=>{
+    if(!itemInput) return;
+    setItems([...items,itemInput],handlePrevClick)
+  }
   return (
     
     <><div className="app">
@@ -26,7 +32,7 @@ function App() {
         :
               <span className="display--add">
             <span>End of the list</span>
-            <input type="text" className="app__carousel--input"/>
+            <input type="text" onChange={handleInput} className="app__carousel--input"/>
               </span>
 }
       </div>
@@ -36,7 +42,7 @@ function App() {
         :<button onClick={handlePrevClick} className="btn btn--primary">Reset</button>
         }</div>
       <div className="app__add">
-        <button className="btn btn--secondary">Add</button>
+        <button onClick={handleAddClick} className="btn btn--secondary">Add</button>
       </div>
     </div><div className="footer">
         &copy;2022 HwR. Designed by MEJOVA
